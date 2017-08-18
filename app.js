@@ -9,7 +9,7 @@ var helmet = require('helmet');
 var compression = require('compression');
 
 var mongoose = require('mongoose');
-var mongoDB = ''
+var mongoDB = process.env.MONGODB_URI || 'mongodb://dfahy:eureka1@ds135983.mlab.com:35983/scoreboard'
 mongoose.connect(mongoDB);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
