@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1= title
+
+  form(method='POST' action='')
+    button.btn.btn-primary(type='submit') Scrape
+  br
+  if notadded
+      ul
+        li !{notadded} with !{result} entries

@@ -1,0 +1,42 @@
+extends layout
+
+block content
+  h1=title
+
+  form(method='POST' action='')
+    div.form-group
+      label(for='name') Name:
+      input#name.form-control(type='text' placeholder='Name' name='player_name' required='true')
+
+    div.form-group
+      label(for='golfer1') Group A Golfer:
+      select#golfer1.form-control(type='select' placeholder='Select Group A Golfer', name='golfer1', required='true')
+        for golfer in golfers
+          option(value=golfer1) #{golfer.name}
+          
+    div.form-group
+      label(for='golfer2') Group B Golfer:
+      select#golfer2.form-control(type='select' placeholder='Select Group B Golfer', name='golfer2', required='true')
+        for golfer in golfers
+          option(value=golfer2) #{golfer.name}
+
+    div.form-group
+      label(for='golfer3') Group C Golfer:
+      select#golfer3.form-control(type='select' placeholder='Select Group C Golfer', name='golfer3', required='true')
+        for golfer in golfers
+          option(value=golfer3) #{golfer.name}
+
+    button.btn.btn-primary(type='submit') Submit
+
+  if errors
+    ul
+      for error in errors
+        li!= error.msg
+
+  if added
+    ul
+      li !{added} Successfully Added!
+
+  if notadded
+    ul
+      li=notadded

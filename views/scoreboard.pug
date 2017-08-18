@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h1= title
+
+  table(style="width:100%")
+    tr
+      th Rank
+      th Player
+      th Score
+      th Golfer 1
+      th Golfer 2
+      th Golfer 3
+    for player, i in players
+      tr
+      td= i+1
+      td !{player.name}
+      td !{player.score}
+      td !{player.golfer1}
+      td !{player.golfer2}
+      td !{player.golfer3}
