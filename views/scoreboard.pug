@@ -1,7 +1,6 @@
 extends layout
 
 block content
-  h1= title
 
   table(style="width:100%")
     tr
@@ -19,3 +18,9 @@ block content
       td !{player.golfer1}
       td !{player.golfer2}
       td !{player.golfer3}
+
+  br
+
+  if user.admin
+    form(method='POST' action='/')
+      button.btn.btn-primary(type='submit') Refresh

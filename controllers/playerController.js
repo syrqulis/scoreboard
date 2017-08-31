@@ -4,10 +4,6 @@ var _ = require('underscore');
 var Player = require('../models/player');
 var Golfer = require('../models/golfer');
 
-exports.list = function(req, res){
-  res.send('NOT IMPLEMENTED');
-};
-
 exports.create_get = function(req, res)
 {
   var golfers = new Array;
@@ -28,7 +24,7 @@ exports.create_get = function(req, res)
       golfers.push({name: golfer});
     }
     golfers = _.sortBy(golfers, 'name');
-    res.render('player', { title: 'Adds', golfers: golfers })
+    res.render('AddPlayer', { title: 'Add Player', golfers: golfers, user: req.user.local })
   })
 };
 
@@ -60,7 +56,7 @@ exports.create_post = function(req, res)
 
   if (errors)
   {
-    res.render('player', { title: 'Add Player', errors: errors })
+    res.render('players', { title: 'Manage Players', errors: errors, user: req.user.local })
     return;
   }
   else
@@ -71,33 +67,17 @@ exports.create_post = function(req, res)
       console.log('found player: ', + found_player);
       if (err) { return next(err); }
       if (found_player) {
-        res.render('player', { title: 'Add Player', notadded: 'Player already exists' });
+        res.render('addPlayer', { title: 'Add Player', notadded: 'Player already exists', user: req.user.local });
       }
       else
       {
         player.save(function (err)
         {
           if (err) { return next(err); }
-          res.redirect('/players');
+          res.redirect('/admin/players');
           console.log('player added: ' + player.name);
         })
       }
     })
   }
-};
-
-exports.delete_get = function(req, res){
-  res.send('NOT IMPLEMENTED');
-};
-
-exports.delete_post = function(req, res){
-  res.send('NOT IMPLEMENTED');
-};
-
-exports.update_get = function(req, res){
-  res.send('NOT IMPLEMENTED');
-};
-
-exports.update_post = function(req, res){
-  res.send('NOT IMPLEMENTED');
 };

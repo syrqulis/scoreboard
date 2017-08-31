@@ -1,8 +1,8 @@
 var Golfer = require('../models/golfer');
 var Tournament = require('../models/tournament');
 var async = require('async');
-var request = require("request");
-var cheerio = require("cheerio");
+var request = require('request');
+var cheerio = require('cheerio');
 var url = 'http://www.espn.com/golf/leaderboard';
 
 var golfers = [];

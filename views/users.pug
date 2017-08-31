@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  h3=title
+  form(method='POST' action='')
+    table(style="width:100%")
+      tr
+        th
+        th Email
+        th Delete
+      for val, i in users
+        tr
+        td= i+1
+        td !{val.local.email}
+        td
+          label(for='checked')
+          input(type="checkbox", name='checked', value=val.local.email)
+    br
+    br
+    button.btn.btn-primary(type='submit') Update

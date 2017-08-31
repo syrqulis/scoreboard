@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h3=title
+  form(method='POST' action='')
+    table(style="width:100%")
+      tr
+        th
+        th Player
+        th Delete
+      for player, i in players
+        tr
+        td= i+1
+        td !{player.name}
+        td
+          label(for='checked')
+          input(type="checkbox", name='checked', value=player.name)
+    br
+    br
+    a(class='btn btn-primary' href='players/addPlayer') Add
+    button.btn.btn-danger(type='submit') Delete
