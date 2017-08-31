@@ -16,7 +16,7 @@ var mongoose = require('mongoose');
 var mongoDB = require('./db');
 
 mongoose.Promise = global.Promise;
-mongoose.connect(mongoDB.url, { useMongoClient: true });
+mongoose.connect((process.env.MONGODB_URL || mongoDB.url), { useMongoClient: true });
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
