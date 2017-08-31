@@ -56,7 +56,7 @@ exports.post_forgot = function(req, res, next){
     }
   ], function(err){
     if (err) return next(err);
-    res.redirect('forgot');
+    res.redirect('/');
   });
 }
 

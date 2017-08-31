@@ -24,7 +24,7 @@ exports.create_get = function(req, res)
       golfers.push({name: golfer});
     }
     golfers = _.sortBy(golfers, 'name');
-    res.render('AddPlayer', { title: 'Add Player', golfers: golfers, user: req.user.local })
+    res.render('addPlayer', { title: 'Add Player', golfers: golfers, user: req.user.local })
   })
 };
 
